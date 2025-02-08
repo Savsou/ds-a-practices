@@ -33,7 +33,7 @@ function findMagicIndex(array, start = 0, end = 7) {
     if (start <= end) {
         let mid = Math.floor((start + end) / 2);
 
-        console.log(mid);
+        // console.log(mid);
 
         if (array[mid] === mid) {
             return mid;
@@ -66,4 +66,25 @@ array2 = [-4, -2, 1, 6, 6, 6, 6, 10]
 array3 = [-4, -2, 1, 6, 6, 6, 7, 10]
 
 // findMagicIndex(array1);
-console.log(findMagicIndex(array3))
+// console.log(findMagicIndex(array3))
+
+
+//Solution 3:
+
+function sillySum(digits) {
+    let sum = 0;
+
+    for (let i = 0; i < digits.length; i++) {
+        //check the current digit with the next digit
+        //% digits.length if the current i is the last digit, then the next digit will be the first digit in the array.
+        //ex. digits[7] === digits[(7+1) % 8], digits[7] === digits[0]
+        //parseInt to get from string to integer
+        if (digits[i] === digits[(i + 1) % digits.length]) {
+            sum += parseInt(digits[i]);
+        }
+    }
+
+    return sum;
+}
+
+module.exports = { sillySum };
