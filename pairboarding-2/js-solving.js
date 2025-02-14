@@ -38,7 +38,7 @@ function maxOfThree(arr) {
 
 // console.log(maxOfThree(arr1));
 
-module.exports = { maxOfThree }
+
 
 // function mergeAlternatively(word1, word2) {
 //     let arr1 = word1.split("");
@@ -64,7 +64,7 @@ module.exports = { maxOfThree }
 // }
 
 //Merge Strings Alternately
-export function mergeAlternately(word1, word2) {
+function mergeAlternately(word1, word2) {
     //Start with a expensive approach
     //use shift (need to convert to an array) function to remove the first letter from each word and push into a new array, might be more time/space expensive
 
@@ -110,7 +110,7 @@ export function mergeAlternately(word1, word2) {
 };
 
 //Greatest Common Divisor of Strings
-export function gcdOfStrings(str1, str2) {
+function gcdOfStrings(str1, str2) {
     let sliced;
     if (str1 + str2 != str2 + str1) return ""
     if (str1 == str2) return str1
@@ -125,7 +125,7 @@ export function gcdOfStrings(str1, str2) {
 };
 
 //Kids With the Greatest Number of Candies
-export function kidsWithCandies(candies, extraCandies) {
+function kidsWithCandies(candies, extraCandies) {
     let max = Math.max(...candies);
     let res = [];
 
@@ -136,3 +136,5 @@ export function kidsWithCandies(candies, extraCandies) {
 
     return res;
 };
+
+module.exports = { maxOfThree, mergeAlternately, gcdOfStrings, kidsWithCandies }
