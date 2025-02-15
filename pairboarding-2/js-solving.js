@@ -39,6 +39,65 @@ function maxOfThree(arr) {
 // console.log(maxOfThree(arr1));
 
 
+//Intersecting Arrays - first function is close to O(n2) because of includes
+// function intersection(firstArray, secondArray) {
+//     let longest = firstArray.length > secondArray.length ? firstArray : secondArray
+//     let shortest = firstArray.length > secondArray.length ? secondArray : firstArray
+//     const intersectArray = [];
+
+//     for (let i = 0; i < shortest.length; i++) {
+//         if (longest.includes(shortest[i])) {
+//             if (!intersectArray.includes(shortest[i]))
+//                 intersectArray.push(shortest[i])
+//         }
+//     }
+
+//     return intersectArray;
+// }
+//this would be a hash map lookup
+function intersection(firstArray, secondArray) {
+    const letterStore = {};
+    const intersectionArray = [];
+
+    firstArray.forEach(element => letterStore[element] = 1);
+
+    secondArray.forEach((element) => {
+        if (letterStore[element] === 1) {
+            intersectionArray.push(element);
+            letterStore[element]++;
+        }
+    });
+
+    return intersectionArray;
+}
+
+// const arr1 = [2, 2, 4, 1];
+// const arr2 = [1, 2, 0, 2];
+
+// console.log(intersection(arr1, arr2));
+
+
+//Largest Difference
+function findLargestDifference(array) {
+    let currentMin = array[0]
+    currentMaxDifference = 0
+
+    for (let i = 1; i < array.length; i++) {
+        if (currentMin < array[i] && ((array[i] - currentMin) > currentMaxDifference)) {
+            currentMaxDifference = array[i] - currentMin
+        } else if (array[i] <= currentMin) {
+            currentMin = array[i];
+        }
+    }
+
+    if (currentMaxDifference <= 0) return -1;
+
+    return currentMaxDifference;
+}
+
+// let array1 = [1, 6, 5, 2, 9, -2]
+// console.log(findLargestDifference(array1))
+
 
 // function mergeAlternatively(word1, word2) {
 //     let arr1 = word1.split("");
@@ -137,4 +196,4 @@ function kidsWithCandies(candies, extraCandies) {
     return res;
 };
 
-module.exports = { maxOfThree, mergeAlternately, gcdOfStrings, kidsWithCandies }
+module.exports = { maxOfThree, mergeAlternately, gcdOfStrings, kidsWithCandies, intersection, findLargestDifference }
