@@ -1,4 +1,4 @@
-const { kidsWithCandies } = require('./js-solving')
+const { kidsWithCandies } = require('./solving-leetcode');
 
 test('candies[2, 3, 5, 1, 3] with 3 extra candies', () => {
     let candies = [2, 3, 5, 1, 3];

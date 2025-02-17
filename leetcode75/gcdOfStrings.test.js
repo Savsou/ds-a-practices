@@ -1,4 +1,4 @@
-const { gcdOfStrings } = require('./js-solving');
+const { gcdOfStrings } = require('./solving-leetcode');
 
 test('gcdOfStrings with ABCABC and ABC', () => {
     let str1 = "ABCABC";

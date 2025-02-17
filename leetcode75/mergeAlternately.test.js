@@ -1,4 +1,4 @@
-const { mergeAlternately } = require('./js-solving')
+const { mergeAlternately } = require('./solving-leetcode');
 
 test('mergeAlternately with abc and pqr', () => {
     let word1 = "abc";
