@@ -28,11 +28,6 @@ function merge_sort(array) {
     return merge(sortedLeftHalf, sortedRightHalf);
 }
 
-//https://leetcode.com/problems/coin-change/description/
-function make_change(amount, coins) {
-
-}
-
 //https://leetcode.com/problems/longest-common-prefix/
 function longestCommonPrefix(strs) {
     let prefix = strs[0]
