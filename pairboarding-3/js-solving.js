@@ -28,4 +28,22 @@ function merge_sort(array) {
     return merge(sortedLeftHalf, sortedRightHalf);
 }
 
-module.exports = { merge_sort }
+//https://leetcode.com/problems/coin-change/description/
+function make_change(amount, coins) {
+
+}
+
+//https://leetcode.com/problems/longest-common-prefix/
+function longestCommonPrefix(strs) {
+    let prefix = strs[0]
+    for (let i = 1; i < strs.length; i++) {
+        while (prefix != strs[i].slice(0, prefix.length)) {
+            prefix = prefix.slice(0, prefix.length - 1)
+        }
+        if (prefix === "") return "";
+    }
+
+    return prefix;
+};
+
+module.exports = { merge_sort, longestCommonPrefix }
