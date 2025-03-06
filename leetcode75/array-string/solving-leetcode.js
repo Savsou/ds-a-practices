@@ -113,4 +113,66 @@ function canPlaceFlowers(flowerbed, n) {
     return count >= n
 }
 
-module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers }
+// var reverseVowels = function(s) {
+//     let vowels = ['a','e','i','o','u','A','E','I','O','U'];
+//     let stringVowels = []
+
+//     for (let i = 0; i < s.length; i++) {
+//         if (vowels.includes(s[i])) {
+//             stringVowels.push(s[i])
+//         }
+//     }
+
+//     stringVowels.reverse();
+
+//     let result = "";
+//     let vowelIndex = 0;
+
+//     for (let i = 0; i < s.length; i++) {
+//         if (vowels.includes(s[i])) {
+//             result += stringVowels[vowelIndex];
+//             vowelIndex++;
+//         } else {
+//             result += s[i];
+//         }
+//     }
+
+//     return result;
+// };
+
+function reverseVowels(s) {
+    const vowels = "aeiouAEIOU"
+    let word = s.split("")
+    let start = 0
+    let end = s.length - 1
+
+    while (start < end) {
+        while (start < end && !vowels.includes(word[start])) {
+            start++
+        }
+        while (start < end && !vowels.includes(word[end])) {
+            end--
+        }
+
+        [word[start], word[end]] = [word[end], word[start]]
+        start++
+        end--
+    }
+
+    return word.join("")
+}
+
+var reverseWords = function (s) {
+    let words = s.trim().split(/\s+/);
+    let reversedWords = []
+    let end = words.length - 1
+    // console.log(words)
+
+    for (let i = 0; i <= end; i++) {
+        reversedWords.push(words[end - i])
+    }
+
+    return reversedWords.join(" ")
+};
+
+module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers, reverseVowels, reverseWords }
