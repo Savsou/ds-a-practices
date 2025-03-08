@@ -175,4 +175,25 @@ var reverseWords = function (s) {
     return reversedWords.join(" ")
 };
 
-module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers, reverseVowels, reverseWords }
+var productExceptSelf = function (nums) {
+    let n = nums.length
+    let newArray = new Array(n).fill(1)
+
+    //start with before and after the index for o(n) so 2 loops
+    //and maybe 3rd loop to combine answers
+    let leftRes = 1;
+    for (let i = 0; i < n; i++) {
+        newArray[i] *= leftRes;
+        leftRes *= nums[i]
+    }
+
+    let rightRes = 1;
+    for (let i = n - 1; i >= 0; i--) {
+        newArray[i] *= rightRes;
+        rightRes *= nums[i]
+    }
+
+    return newArray;
+};
+
+module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers, reverseVowels, reverseWords, productExceptSelf }
