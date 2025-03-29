@@ -196,4 +196,23 @@ var productExceptSelf = function (nums) {
     return newArray;
 };
 
+//https://leetcode.com/problems/increasing-triplet-subsequence/?envType=study-plan-v2&envId=leetcode-75
+
+var increasingTriplet = function (nums) {
+    let first = Infinity;
+    let second = Infinity;
+
+    for (let num of nums) {
+        if (num <= first) {
+            first = num
+        } else if (num <= second) {
+            second = num
+        } else {
+            return true
+        }
+    }
+
+    return false
+};
+
 module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers, reverseVowels, reverseWords, productExceptSelf }
