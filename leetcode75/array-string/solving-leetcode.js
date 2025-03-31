@@ -215,4 +215,32 @@ var increasingTriplet = function (nums) {
     return false
 };
 
+//https://leetcode.com/problems/string-compression/description/?envType=study-plan-v2&envId=leetcode-75
+
+var compress = function (chars) {
+    let index = 0;
+
+    for (let i = 0; i < chars.length;) {
+        let count = 0
+        let currentChar = chars[i]
+
+        while (i < chars.length && chars[i] === currentChar) {
+            count++
+            i++
+        }
+
+        chars[index] = currentChar;
+        index++;
+
+        if (count > 1) {
+            for (let digit of count.toString()) {
+                chars[index] = digit;
+                index++;
+            }
+        }
+    }
+
+    return index;
+};
+
 module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers, reverseVowels, reverseWords, productExceptSelf }
