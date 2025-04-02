@@ -241,6 +241,8 @@ var compress = function (chars) {
     }
 
     return index;
+    //if i want the compressed array back
+    //return chars.slice(0, index)
 };
 
 module.exports = { mergeAlternately, gcdOfStrings, kidsWithCandies, canPlaceFlowers, reverseVowels, reverseWords, productExceptSelf }
