@@ -25,3 +25,34 @@ var countCharacters = function (words, chars) {
 
     return result;
 };
+
+//solution 2
+var countCharacters = function (words, chars) {
+    let result = 0;
+    let charsCount = {}
+
+    for (let char of chars) {
+        charsCount[char] = (charsCount[char] || 0) + 1
+    }
+
+    for (let word of words) {
+        let copyChars = { ...charsCount }
+        let wordLength = 0
+
+        for (let letter of word) {
+            //if letters in copyChars, then minus the value
+            //the value must be > 0, so !== 0
+            if (copyChars[letter] && copyChars[letter] !== 0) {
+                copyChars[letter] -= 1
+                wordLength += 1
+            } else {
+                wordLength = 0
+                break;
+            }
+        }
+
+        result += wordLength;
+    }
+
+    return result;
+};
