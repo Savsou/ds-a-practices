@@ -48,5 +48,5 @@ function judgeRobot(string) {
     return x === 0 && y === 0;
 }
 
-console.log(judgeRobot("UD"))
-console.log(judgeRobot("LL"))
+// console.log(judgeRobot("UD"))
+// console.log(judgeRobot("LL"))
